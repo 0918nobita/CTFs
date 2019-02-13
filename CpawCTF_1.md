@@ -49,3 +49,26 @@ Chrome で該当サイトにアクセスして、開発者向けコンソール�
 
 渡された画像から位置情報を取り出し、川の名前を FLAG とする問題。  
 macOS の「プレビュー」アプリで該当の画像を開いて位置情報を表示させ、マップ上で位置を確認して答えがわかった。
+
+## Q11. [Network] pcap
+
+パケットを記録した ``.pcap`` ファイルを受け取り、中から FLAG を見つけ出す問題。  
+``tcpdump`` というツールを使えば内容が見れるらしい。(参考: [serverfault](https://serverfault.com/questions/38626/how-can-i-read-pcap-files-in-a-friendly-format))  
+macOS にいつの間にかインストールされていたので以下のコマンドを実行して FLAG を発見した。
+
+```bash
+$ tcpdump -n -A -r network10.pcap
+reading from file network10.pcap, link-type EN10MB (Ethernet)
+12:12:51.815374 IP 169.254.144.80 > 169.254.144.81:  ip-proto-0 20
+E..(....@..7...P...Qcpaw{gochi_usa_kami}......
+12:12:51.815454 IP 169.254.144.81 > 169.254.144.80: ICMP 169.254.144.81 protocol 0 unreachable, length 48
+E..Ds...@..D...Q...P........E..(....@..7...P...Qcpaw{<FLAG>}
+```
+
+``tcpdump`` のオプションについて：
+
+| オプション | 意味 |
+| --- | --- |
+| -n | アドレス変換 (192.168.1.123 => examplehost) やポート番号変換 (80 => http) をしない |
+| -A | キャプチャデータを ASCII 表示 |
+| -r [filename] | 読み込むファイルの指定 |
