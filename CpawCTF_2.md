@@ -37,3 +37,9 @@ $ curl -v http://q15.ctf.cpaw.site
 ## Q17. [Recon] Who am I ?
 
 ストーカーのようなことをすれば解けた (ユーザー名が含まれている画像をググって探した) 。
+
+## Q22. [Web] Baby's SQLi - Stage 1 -
+
+特設サイト上で SQL 文を実行して FLAG を得る問題。  
+**Stage1. Writing SQL** については ``SELECT * from palloc_home`` を実行してテーブルの内容を表示させることで FLAG を得た。  
+同時に、Stage 2 で使用するサイトの URL も与えられた。
