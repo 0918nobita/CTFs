@@ -12,7 +12,8 @@
 ## Q7. [Reversing] Can you execute ?
 
 渡された ``exec_me`` のファイルの形式を確認させ、実行して FLAG を確認させる問題。  
-まず docker で構築した Arch linux の仮想環境に ``binutils`` を導入し、それに含まれる ``objdump`` を用いて ``exec_me`` のフォーマットを確認した。
+まず docker で構築した Arch linux の仮想環境に ``binutils`` を導入し、  
+それに含まれる ``objdump`` を用いて ``exec_me`` のフォーマットを確認した。
 
 ```bash
 $ objdump -f exec_me
@@ -23,4 +24,17 @@ EXEC_P, HAS_SYMS, D_PAGED
 start address 0x0000000000400440
 ```
 
-``elf64-x86-64`` とのことなので、``chmod u+x exec_me`` で実行権限を与えて ``./exec_me`` で普通に実行すると FLAG が標準出力された。
+``elf64-x86-64`` とのことなので、``chmod u+x exec_me`` で実行権限を与えて  
+``./exec_me`` で普通に実行すると FLAG が標準出力された。
+
+## Q8. [Misc] Can you open this file ?
+
+拡張子のないファイル ``open_me`` を受け取り、その種類を特定して適切なアプリケーションで開いて FLAG を見つける問題。  
+macOS のターミナルで ``file`` コマンドを使って種類を特定した。
+
+```bash
+$ file open_me
+open_me: Composite Document File V2 Document, Little Endian, Os: Windows, Version 10.0, Code page: 932, Author: �v��, Template: Normal.dotm, Last Saved By: �v��, Revision Number: 1, Name of Creating Application: Microsoft Office Word, Total Editing Time: 28:00, Create Time/Date: Mon Oct 12 04:27:00 2015, Last Saved Time/Date: Mon Oct 12 04:55:00 2015, Number of Pages: 1, Number of Words: 3, Number of Characters: 23, Security: 0
+```
+
+``Composite Document File V2 Document`` とのことなので、とりあえず Microsoft Word で開いてみると FLAG が書き込まれていた。
