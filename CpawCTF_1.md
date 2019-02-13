@@ -60,7 +60,7 @@ macOS にいつの間にかインストールされていたので以下のコ�
 $ tcpdump -n -A -r network10.pcap
 reading from file network10.pcap, link-type EN10MB (Ethernet)
 12:12:51.815374 IP 169.254.144.80 > 169.254.144.81:  ip-proto-0 20
-E..(....@..7...P...Qcpaw{gochi_usa_kami}......
+E..(....@..7...P...Qcpaw{<FLAG>}......
 12:12:51.815454 IP 169.254.144.81 > 169.254.144.80: ICMP 169.254.144.81 protocol 0 unreachable, length 48
 E..Ds...@..D...Q...P........E..(....@..7...P...Qcpaw{<FLAG>}
 ```
