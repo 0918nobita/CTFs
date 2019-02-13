@@ -72,3 +72,8 @@ E..Ds...@..D...Q...P........E..(....@..7...P...Qcpaw{<FLAG>}
 | -n | アドレス変換 (192.168.1.123 => examplehost) やポート番号変換 (80 => http) をしない |
 | -A | キャプチャデータを ASCII 表示 |
 | -r [filename] | 読み込むファイルの指定 |
+
+## Q12. [Crypto] HashHashHash!
+
+ハッシュ関数 SHA1 を用いて生成されたハッシュ値を受け取り、元に戻す問題。  
+[外部ツール](https://sha1.gromweb.com/?hash=e4c6bced9edff99746401bd077afa92860f83de3)を利用して元の文字列を得た。
